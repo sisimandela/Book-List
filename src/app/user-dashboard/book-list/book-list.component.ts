@@ -18,10 +18,11 @@ export class BookListComponent implements OnInit {
     this.bookService.getBooks()
     .subscribe(books => this.books = books);
   }
-  add(title: string){
+  add(title: string, author: string){
     title = title.trim();
-  if (!title) { return; }
-  this.bookService.addBook({ title } as Book)
+    author = author.trim();
+  if (!title && !author) { return; }
+  this.bookService.addBook({ title, author } as Book)
     .subscribe(book => {
       this.books.push(book);
     });
