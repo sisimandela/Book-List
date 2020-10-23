@@ -12,7 +12,7 @@
         <label>Book Author:</label>
           <input #bookAuthor class="form-control" />
       </div>
-      <button class="btn btn-primary" (click)="add(bookTitle.value && bookAuthor.value); bookTitle.value='' bookAuthor.value=''">
+      <button class="btn btn-primary" (click)="add(bookTitle.value);">
         add
       </button>
     </form>
