@@ -141,3 +141,9 @@ table{
   font-size: 20px;
   color: #f4623a;
 }
+.box{
+    height: 200px;
+    border: #f4623a 1px solid;
+  margin: 2px;
+    box-shadow: #f4f4f4;
+}
