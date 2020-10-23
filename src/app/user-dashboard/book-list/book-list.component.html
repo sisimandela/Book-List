@@ -2,18 +2,31 @@
 <div class="container mt-4">
   <h1 class="display-4 text-center">
     <i class="fas fa-book-open text-primary"></i>Welcome to Your Book List</h1>
+    <form action="">
+      <h3 class="text-center">Add a new Book</h3>
+      <div class="form-group col-md-6 mx-auto">
+        <label>Book name:</label>
+          <input #bookTitle class="form-control" />
+        <!-- (click) passes input value to add() and then clears the input -->
+        <button class="btn btn-primary" (click)="add(bookTitle.value); bookTitle.value=''">
+          add
+        </button>
+      </div>
+    </form>
+   
     <table class="table table-striped mt-5">
         <thead>
           <tr>
             <th>Title</th>
             <th>Author</th>
-            <th></th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody id="book-list" *ngFor="let book of books">
             <td><a (click)="onClick(book)">{{book.title}}</a></td>
             <td>{{book.author}}</td>
-            
+            <td><button class="delete" title="delete hero"
+              (click)="delete(hero)">x</button></td>
     </tbody>
     </table>
     </div>
