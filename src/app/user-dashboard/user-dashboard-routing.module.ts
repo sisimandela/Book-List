@@ -7,14 +7,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {
   path: '',
-  component: DashboardComponent,
+  component:  BookListComponent,
   canActivate: [AuthGuard],
   children: [
     {
       path: '',
       children: [
-        { path: 'bookList', component: BookListComponent },
-        { path: '', component: DashboardComponent }
+        { path: '', component:  BookListComponent },
+        { path: 'bookList', component: BookListComponent }
+        
       ]
     }
   ]

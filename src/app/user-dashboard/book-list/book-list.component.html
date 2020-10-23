@@ -1,5 +1,7 @@
 
 <div class="container mt-4">
+  <h1 class="display-4 text-center">
+    <i class="fas fa-book-open text-primary"></i>Welcome to Your Book List</h1>
     <table class="table table-striped mt-5">
         <thead>
           <tr>
@@ -11,6 +13,7 @@
         <tbody id="book-list" *ngFor="let book of books">
             <td><a (click)="onClick(book)">{{book.title}}</a></td>
             <td>{{book.author}}</td>
+            
     </tbody>
     </table>
     </div>

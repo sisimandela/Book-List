@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from 'src/app/Book';
+import { BooksService } from 'src/app/books.service';
 import {InMemoryDataService}from '../../in-memory-data.service'
 @Component({
   selector: 'app-book-list',
@@ -6,13 +8,27 @@ import {InMemoryDataService}from '../../in-memory-data.service'
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-
-  constructor(private inMemoryDataService: InMemoryDataService) { }
+  books: Book[];
+  constructor(private bookService: BooksService) { }
 
   ngOnInit(): void {
+    this.getBooks();
   }
-  onSelect(){
-    this.inMemoryDataService.get<>()
+  getBooks(): void {
+    this.bookService.getBooks()
+    .subscribe(books => this.books = books);
+  }
+  add(title: string){
+    title = title.trim();
+  if (!title) { return; }
+  this.bookService.addBook({ title } as Book)
+    .subscribe(book => {
+      this.books.push(book);
+    });
+  }
+  delete(book: Book): void {
+    this.books = this.books.filter(h => h !== book);
+    this.bookService.deleteBook(book).subscribe();
   }
 
 }
