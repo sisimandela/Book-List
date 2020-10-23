@@ -8,10 +8,11 @@ import { NavComponent } from './nav/nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {UserDashboardModule}from './user-dashboard/user-dashboard.module'
 import{HttpClientModule}from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { BookListComponent } from './user-dashboard/book-list/book-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     NotFoundComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent
+
+    BookListComponent
   ],
   imports: [
     BrowserModule,
